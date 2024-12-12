@@ -1,8 +1,76 @@
+//----------------------------------------
+//-----------POST REQUESTS----------------
+//----------------------------------------
 ###
-//get me the home page
-GET http://localhost:3000/posts
-
-
-###
-//get me the home page
+//Get me the home page
 GET http://localhost:3000/
+
+
+###
+//Get me the posts page
+GET http://localhost:3000/post
+
+
+###
+//Get me a post by a specific sender
+GET http://localhost:3000/post?sender=Yotam123
+
+###
+//Get me a post by a specific id
+GET http://localhost:3000/post/675ac7c2f19ce8b0f83da927
+
+###
+//Post a new post (stored in DB)
+POST http://localhost:3000/post
+Content-Type: application/json
+
+{
+  "sender": "Yotam",
+  "title": "My first post",
+  "content": "This is my first post"
+}
+
+###
+//Delete post by id number
+DELETE http://localhost:3000/post/675ac7c2f19ce8b0f83da927
+
+
+//-------------------------------------------
+//-----------COMMENT REQUESTS----------------
+//-------------------------------------------
+
+###
+//Get me all comments
+GET http://localhost:3000/comment
+
+###
+//Get comment by comment id 
+GET http://localhost:3000/comment/675acf34a277d7b27014a5d2
+
+###
+//Get all comments of a post by post id
+GET http://localhost:3000/comment?postId=675ac7c2f19ce8b0f83da92
+
+### 
+//Create a new comment (stored in DB)
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+  "author": "Yotam",
+  "content": "Second commment on this post",
+  "postId": "675ac7c2f19ce8b0f83da923"
+}
+
+###
+//Update comment by comment id
+PUT http://localhost:3000/comment/675acf54a277d7b27014a5d4
+Content-Type: application/json
+
+{
+  "content": "Updated comment on this post"
+}
+
+###
+//Delete comment by comment id 
+DELETE http://localhost:3000/comment/675ad2865dbae98ab0dfc781
